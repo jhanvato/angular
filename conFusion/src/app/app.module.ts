@@ -11,6 +11,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms'; 
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+import { baseURL } from './shared/baseurl';
 
 import { AppComponent } from './app.component';
 
@@ -68,12 +71,15 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    MatSliderModule
+    MatSliderModule,
+    HttpClientModule,
+    HttpModule
   ],
   providers: [
   DishService,
   PromotionService,
-  LeaderService
+  LeaderService,
+  {provide: 'BaseURL', useValue: baseURL}
   
   ],
   entryComponents: [
